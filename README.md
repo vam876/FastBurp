@@ -2,11 +2,14 @@
 
 🚀 **FastBurp** 是一款基于浏览器扩展的轻量级HTTP/HTTPS请求拦截、重放、分析和AI辅助安全分析浏览器插件，无需安装额外软件，即开即用。
 
-![version](https://img.shields.io/badge/version-1.0.1-blue)
+![version](https://img.shields.io/badge/version-1.1.5-blue)
 ![chrome](https://img.shields.io/badge/Chrome-支持-green)
 ![edge](https://img.shields.io/badge/Edge-支持-green)
 ![360](https://img.shields.io/badge/360极速-支持-green)
 ![QQ](https://img.shields.io/badge/QQ浏览器-支持-green)
+
+- **最新版本**: 1.1.5
+- **更新日期**: 2025/09/04
 
 ## ✨ 核心功能
 
@@ -14,7 +17,8 @@
 - 直接调用Chrome浏览器原生API进行HTTPS流量抓取
 - 无需安装证书，避免证书配置的复杂性
 - 支持所有基于Chromium的浏览器
-<img width="800" height="600" alt="image" src="https://github.com/user-attachments/assets/37701667-7b3d-436e-9c26-156956e7b525" />
+<img width="800" height="600" alt="image" src="https://github.com/user-attachments/assets/2cbc281c-fd79-48b1-ad1e-facc65db4ec6" />
+
 
 ### 🔍 智能搜索与高亮
 - 支持正则表达式搜索响应内容
