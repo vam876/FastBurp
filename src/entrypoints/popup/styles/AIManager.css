@@ -1,0 +1,168 @@
+/* AI管理器样式 */
+.ai-manager {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+/* 深色模式 */
+.ai-manager.dark {
+  background-color: #2a2a2a;
+  color: #e0e0e0;
+}
+
+/* 浅色模式 */
+.ai-manager.light {
+  background-color: #f9f9f9;
+  color: #333333;
+}
+
+.ai-manager-close-button {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  z-index: 10;
+}
+
+.ai-manager.dark .ai-manager-close-button {
+  color: #cccccc;
+}
+
+.ai-manager.dark .ai-manager-close-button:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.ai-manager.light .ai-manager-close-button {
+  color: #555555;
+}
+
+.ai-manager.light .ai-manager-close-button:hover {
+  background-color: rgba(0, 0, 0, 0.08);
+  color: #333333;
+  border-color: #d0d0d0;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.ai-manager-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid;
+  padding-top: 10px;
+}
+
+.ai-manager.dark .ai-manager-header {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.ai-manager.light .ai-manager-header {
+  border-color: #e0e0e0;
+}
+
+.ai-manager-tabs {
+  display: flex;
+}
+
+.ai-tab-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.2s;
+  position: relative;
+}
+
+.ai-manager.dark .ai-tab-button {
+  color: #aaaaaa;
+}
+
+.ai-manager.dark .ai-tab-button:hover {
+  color: #e0e0e0;
+}
+
+.ai-manager.dark .ai-tab-button.active {
+  color: #4a86e8;
+}
+
+.ai-manager.light .ai-tab-button {
+  color: #777777;
+}
+
+.ai-manager.light .ai-tab-button:hover {
+  color: #333333;
+}
+
+.ai-manager.light .ai-tab-button.active {
+  color: #4a86e8;
+}
+
+.ai-tab-button.active::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: #4a86e8;
+}
+
+.ai-manager-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0;
+}
+
+/* API密钥复选框样式 */
+.api-key-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.api-key-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.api-key-checkbox input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.checkbox-label {
+  font-size: 13px;
+  font-weight: normal;
+  cursor: pointer;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+  .ai-tab-button {
+    padding: 10px 16px;
+    font-size: 13px;
+  }
+} 

@@ -1,0 +1,470 @@
+/* AI设置面板样式 */
+.ai-settings-panel {
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  border-radius: 8px;
+}
+
+/* 深色模式 */
+.ai-settings-panel.dark {
+  background-color: #2a2a2a;
+  color: #e0e0e0;
+}
+
+/* 浅色模式 */
+.ai-settings-panel.light {
+  background-color: #f9f9f9;
+  color: #333333;
+}
+
+.ai-settings-panel h2 {
+  margin-top: 0;
+  margin-bottom: 24px;
+  font-size: 20px;
+  font-weight: 600;
+  padding-bottom: 8px;
+}
+
+.ai-settings-panel.dark h2 {
+  border-bottom: 2px solid #4a86e8;
+  color: #e0e0e0;
+}
+
+.ai-settings-panel.light h2 {
+  border-bottom: 2px solid #4a86e8;
+  color: #333333;
+}
+
+.ai-settings-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.ai-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px;
+  border-radius: 8px;
+}
+
+.ai-form-group.dark {
+  background-color: #333333;
+}
+
+.ai-form-group.light {
+  background-color: white;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.ai-form-group label {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.ai-form-group input,
+.ai-form-group textarea {
+  padding: 10px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.ai-form-group input.dark,
+.ai-form-group textarea.dark {
+  background-color: #424242;
+  color: #e0e0e0;
+  border: 1px solid #555555;
+}
+
+.ai-form-group input.dark:focus,
+.ai-form-group textarea.dark:focus {
+  border-color: #4a86e8;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(74, 134, 232, 0.3);
+}
+
+.ai-form-group input.light,
+.ai-form-group textarea.light {
+  background-color: #f9f9f9;
+  color: #333333;
+  border: 1px solid #e0e0e0;
+}
+
+.ai-form-group input.light:focus,
+.ai-form-group textarea.light:focus {
+  border-color: #4a86e8;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(74, 134, 232, 0.2);
+}
+
+.ai-form-group textarea {
+  min-height: 120px;
+  resize: vertical;
+  line-height: 1.5;
+}
+
+.ai-help-text {
+  font-size: 12px;
+  margin: 4px 0 0 0;
+  font-style: italic;
+}
+
+.ai-help-text.dark {
+  color: #aaaaaa;
+}
+
+.ai-help-text.light {
+  color: #777777;
+}
+
+.ai-form-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 16px;
+}
+
+.ai-save-button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  height: 44px;
+  position: relative;
+  overflow: hidden;
+}
+
+.ai-save-button.dark {
+  background-color: #4a86e8;
+  color: white;
+}
+
+.ai-save-button.dark:hover {
+  background-color: #3a76d8;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.ai-save-button.light {
+  background-color: #4a86e8;
+  color: white;
+}
+
+.ai-save-button.light:hover {
+  background-color: #3a76d8;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.ai-save-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.ai-save-message {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  animation: ai-fade-in 0.3s ease-out;
+}
+
+.ai-save-message.success {
+  background-color: rgba(76, 175, 80, 0.1);
+  color: #4caf50;
+}
+
+.ai-save-message.error {
+  background-color: rgba(244, 67, 54, 0.1);
+  color: #f44336;
+}
+
+@keyframes ai-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+  .ai-settings-panel {
+    padding: 16px;
+  }
+  
+  .ai-form-group {
+    padding: 12px;
+  }
+  
+  .ai-form-actions {
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .ai-save-button {
+    width: 100%;
+    justify-content: center;
+  }
+} 
+
+/* 系统提示词模板样式 */
+.system-prompt-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.prompt-templates-button {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background: none;
+  border: none;
+  border-radius: 4px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.ai-settings-panel.dark .prompt-templates-button {
+  color: #4a86e8;
+  background-color: rgba(74, 134, 232, 0.1);
+}
+
+.ai-settings-panel.dark .prompt-templates-button:hover {
+  background-color: rgba(74, 134, 232, 0.2);
+}
+
+.ai-settings-panel.light .prompt-templates-button {
+  color: #4a86e8;
+  background-color: rgba(74, 134, 232, 0.1);
+}
+
+.ai-settings-panel.light .prompt-templates-button:hover {
+  background-color: rgba(74, 134, 232, 0.2);
+}
+
+.prompt-templates-dropdown {
+  position: relative;
+  background-color: #333333;
+  border-radius: 6px;
+  margin-bottom: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  animation: fade-in 0.2s ease-out;
+  display: flex;
+  flex-direction: column;
+}
+
+.ai-settings-panel.light .prompt-templates-dropdown {
+  background-color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.prompt-template-item {
+  padding: 10px 16px;
+  text-align: left;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 14px;
+}
+
+.ai-settings-panel.dark .prompt-template-item {
+  color: #e0e0e0;
+}
+
+.ai-settings-panel.dark .prompt-template-item:hover {
+  background-color: #444444;
+}
+
+.ai-settings-panel.light .prompt-template-item {
+  color: #333333;
+}
+
+.ai-settings-panel.light .prompt-template-item:hover {
+  background-color: #f5f5f5;
+}
+
+.prompt-template-empty {
+  padding: 12px 16px;
+  text-align: center;
+  font-style: italic;
+  color: #888;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+} 
+
+/* 导入导出配置区域样式 */
+.import-export-section h3 {
+  font-size: 16px;
+  margin-top: 0;
+  margin-bottom: 16px;
+  font-weight: 600;
+}
+
+.import-export-controls {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.export-controls, .import-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+}
+
+.export-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.export-checkbox input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.checkbox-label {
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.ai-export-button,
+.ai-import-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 14px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  width: 100%;
+  height: 44px;
+  position: relative;
+  overflow: hidden;
+}
+
+.ai-export-button.dark,
+.ai-import-button.dark {
+  background-color: #333333;
+  color: #cccccc;
+  border: 1px solid #555555;
+}
+
+.ai-export-button.dark:hover,
+.ai-import-button.dark:hover {
+  background-color: #444444;
+  color: #ffffff;
+  border-color: #666666;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.ai-export-button.light,
+.ai-import-button.light {
+  background-color: #f0f0f0;
+  color: #555555;
+  border: 1px solid #e0e0e0;
+}
+
+.ai-export-button.light:hover,
+.ai-import-button.light:hover {
+  background-color: #e5e5e5;
+  color: #333333;
+  border-color: #d0d0d0;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 改进导入导出布局 */
+.import-export-section {
+  padding: 16px;
+  border-radius: 8px;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.ai-settings-panel.light .import-export-section {
+  background-color: rgba(0, 0, 0, 0.03);
+}
+
+.import-export-controls {
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.export-controls, .import-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 12px;
+  flex: 1;
+  width: calc(50% - 8px);
+}
+
+.export-checkbox {
+  margin-bottom: 0;
+  white-space: nowrap;
+  height: 24px;
+  display: flex;
+  align-items: center;
+}
+
+.import-placeholder {
+  height: 24px; /* 与export-checkbox高度一致 */
+}
+
+/* 确保按钮文本居中 */
+.ai-export-button span,
+.ai-import-button span {
+  flex: 1;
+  text-align: center;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+  .import-export-controls {
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .export-controls, .import-controls {
+    flex-direction: column;
+    width: 100%;
+  }
+} 

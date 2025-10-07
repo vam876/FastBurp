@@ -1,0 +1,53 @@
+.tab-selector {
+  display: flex;
+  border-bottom: 1px solid #333;
+  margin-bottom: 0;
+  background-color: #1e2124;
+}
+
+.tab-selector button {
+  padding: 12px 20px;
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  color: #bbb;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tab-selector button:hover {
+  background-color: #2a2e32;
+  color: #eee;
+}
+
+.tab-selector button.active {
+  border-bottom: 2px solid #2196F3;
+  color: #2196F3;
+  font-weight: bold;
+  background-color: #2a2e32;
+}
+
+/* 深色模式 */
+.dark .tab-selector {
+  background-color: #333;
+  border-bottom-color: #555;
+}
+
+.dark .tab-selector button {
+  color: #bbb;
+}
+
+.dark .tab-selector button:hover {
+  background-color: #444;
+  color: #eee;
+}
+
+.dark .tab-selector button.active {
+  border-bottom-color: #64b5f6;
+  color: #64b5f6;
+}

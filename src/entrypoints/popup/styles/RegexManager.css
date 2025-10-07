@@ -1,0 +1,561 @@
+.regex-manager {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+.regex-manager-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  border-bottom: 1px solid #3a3f47;
+  background-color: #1e2124;
+}
+
+.regex-manager-header h2 {
+  margin: 0;
+  font-size: 20px;
+  color: #fff;
+  font-weight: 600;
+}
+
+.regex-manager-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.regex-manager-actions button {
+  padding: 8px 16px;
+  background-color: #2196F3;
+  border: 1px solid #0d8bf0;
+  border-radius: 6px;
+  cursor: pointer;
+  color: white;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.regex-manager-actions button:hover {
+  background-color: #0d8bf0;
+  transform: translateY(-1px);
+}
+
+.regex-tabs {
+  display: flex;
+  border-bottom: 1px solid #333;
+  background-color: #1e2124;
+}
+
+.regex-tab {
+  padding: 10px 16px;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  color: #bbb;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+}
+
+.regex-tab:hover {
+  background-color: #2a2e32;
+  color: #eee;
+}
+
+.regex-tab.active {
+  border-bottom: 2px solid #2196F3;
+  color: #2196F3;
+  font-weight: bold;
+  background-color: #2a2e32;
+}
+
+.regex-content {
+  flex: 1;
+  overflow: auto;
+  padding: 20px;
+  background-color: #282c34;
+}
+
+.regex-rules-list {
+  width: 100%;
+  overflow: auto;
+}
+
+.regex-rules-list table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.regex-rules-list th,
+.regex-rules-list td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #444;
+}
+
+.regex-rules-list th {
+  background-color: #2a2e32;
+  font-weight: 600;
+  color: #fff;
+  font-size: 14px;
+}
+
+.regex-rules-list tr:hover {
+  background-color: #3a3f47;
+}
+
+.regex-rules-list tr:nth-child(even) {
+  background-color: #2a2e32;
+}
+
+.regex-rules-list tr:nth-child(even):hover {
+  background-color: #3a3f47;
+}
+
+.regex-rules-list tr.disabled {
+  opacity: 0.6;
+}
+
+.regex-pattern {
+  font-family: monospace;
+  max-width: 300px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.regex-actions {
+  display: flex;
+  gap: 5px;
+}
+
+.regex-actions button {
+  padding: 6px 10px;
+  background-color: #333;
+  border: 1px solid #555;
+  border-radius: 4px;
+  cursor: pointer;
+  color: #eee;
+  transition: all 0.2s ease;
+}
+
+.regex-actions button:hover {
+  background-color: #444;
+  border-color: #666;
+}
+
+.no-rules {
+  padding: 40px 20px;
+  text-align: center;
+  color: #aaa;
+  font-size: 16px;
+  background-color: #2a2e32;
+  border-radius: 8px;
+  margin: 20px;
+}
+
+/* 编辑器样式 */
+.regex-editor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.regex-editor-content {
+  background-color: #282c34;
+  color: #eee;
+  border-radius: 12px;
+  width: 80%;
+  max-width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 25px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  border: 1px solid #3a3f47;
+}
+
+.regex-editor-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #3a3f47;
+}
+
+.regex-editor-header h3 {
+  margin: 0;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.regex-editor-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  font-weight: 500;
+  color: #110303;
+  font-size: 14px;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  padding: 12px;
+  background-color: #333;
+  border: 1px solid #555;
+  border-radius: 6px;
+  font-size: 14px;
+  color: #eee;
+  transition: all 0.2s ease;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  border-color: #2196F3;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(33, 150, 243, 0.3);
+}
+
+.form-group textarea {
+  min-height: 80px;
+  font-family: monospace;
+  resize: vertical;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.form-actions button {
+  padding: 10px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+  font-size: 14px;
+  transition: all 0.2s ease;
+  border: none;
+}
+
+.form-actions button.cancel {
+  background-color: #666;
+  color: white;
+}
+
+.form-actions button.cancel:hover {
+  background-color: #555;
+  transform: translateY(-1px);
+}
+
+.form-actions button.save {
+  background-color: #2196F3;
+  color: white;
+}
+
+.form-actions button.save:hover {
+  background-color: #0d8bf0;
+  transform: translateY(-1px);
+}
+
+.form-actions button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* 正则测试器样式 */
+.regex-tester {
+  margin-top: 20px;
+  border-top: 1px solid #3a3f47;
+  padding-top: 20px;
+}
+
+.regex-tester h4 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.test-input {
+  width: 100%;
+  min-height: 80px;
+  margin-bottom: 15px;
+  padding: 12px;
+  background-color: #333;
+  border: 1px solid #555;
+  border-radius: 6px;
+  font-family: monospace;
+  color: #eee;
+  font-size: 14px;
+  resize: vertical;
+  transition: all 0.2s ease;
+}
+
+.test-input:focus {
+  border-color: #2196F3;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(33, 150, 243, 0.3);
+}
+
+.test-result {
+  margin-top: 15px;
+  padding: 15px;
+  border-radius: 6px;
+  font-family: monospace;
+  white-space: pre-wrap;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.test-result.valid {
+  background-color: #1b5e20;
+  border: 1px solid #2e7d32;
+  color: #c8e6c9;
+}
+
+.test-result.invalid {
+  background-color: #c62828;
+  border: 1px solid #d32f2f;
+  color: #ffcdd2;
+}
+
+.test-result .match {
+  background-color: #2196f3;
+  color: white;
+  padding: 2px;
+}
+
+/* 匹配记录样式 */
+.regex-matches {
+  width: 100%;
+  overflow: auto;
+}
+
+.regex-matches table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #333;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.regex-matches th,
+.regex-matches td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #444;
+}
+
+.regex-matches th {
+  background-color: #2a2e32;
+  font-weight: 600;
+  color: #fff;
+  font-size: 14px;
+}
+
+.regex-matches tr:hover {
+  background-color: #3a3f47;
+}
+
+.regex-matches tr:nth-child(even) {
+  background-color: #2a2e32;
+}
+
+.regex-matches tr:nth-child(even):hover {
+  background-color: #3a3f47;
+}
+
+.match-content {
+  font-family: monospace;
+  max-width: 300px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #64b5f6;
+  background-color: rgba(33, 150, 243, 0.1);
+  padding: 2px 4px;
+  border-radius: 3px;
+}
+
+.match-context {
+  font-family: monospace;
+  max-width: 400px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.match-content .highlight {
+  background-color: #2196f3;
+  color: white;
+  padding: 2px;
+}
+
+.no-matches {
+  padding: 40px 20px;
+  text-align: center;
+  color: #aaa;
+  font-size: 16px;
+  background-color: #2a2e32;
+  border-radius: 8px;
+  margin: 20px;
+}
+
+.matches-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.matches-actions button {
+  padding: 8px 16px;
+  background-color: #333;
+  border: 1px solid #555;
+  border-radius: 6px;
+  cursor: pointer;
+  color: #eee;
+  transition: all 0.2s ease;
+  font-size: 14px;
+}
+
+.matches-actions button:hover {
+  background-color: #444;
+  border-color: #666;
+}
+
+/* 详情按钮样式 */
+.detail-button {
+  padding: 4px 8px;
+  background-color: #2196F3;
+  border: 1px solid #1976D2;
+  border-radius: 4px;
+  cursor: pointer;
+  color: white;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.detail-button:hover {
+  background-color: #1976D2;
+  transform: translateY(-1px);
+}
+
+.detail-button:active {
+  transform: translateY(0);
+}
+
+/* 深色模式 */
+.dark .regex-manager-header {
+  border-bottom-color: #444;
+}
+
+.dark .regex-manager-actions button {
+  background-color: #333;
+  border-color: #555;
+  color: #eee;
+}
+
+.dark .regex-manager-actions button:hover {
+  background-color: #444;
+}
+
+.dark .regex-tab.active {
+  border-bottom-color: #64b5f6;
+}
+
+.dark .regex-rules-list th,
+.dark .regex-rules-list td,
+.dark .regex-matches th,
+.dark .regex-matches td {
+  border-bottom-color: #444;
+}
+
+.dark .regex-rules-list th,
+.dark .regex-matches th {
+  background-color: #333;
+}
+
+.dark .regex-rules-list tr:hover,
+.dark .regex-matches tr:hover {
+  background-color: #333;
+}
+
+.dark .regex-editor-content {
+  background-color: #222;
+  color: #eee;
+}
+
+.dark .form-group input,
+.dark .form-group textarea,
+.dark .form-group select,
+.dark .test-input {
+  background-color: #333;
+  border-color: #555;
+  color: #eee;
+}
+
+.dark .form-actions button.cancel {
+  background-color: #333;
+  border-color: #555;
+  color: #eee;
+}
+
+.dark .test-result.valid {
+  background-color: #1b5e20;
+  border-color: #2e7d32;
+}
+
+.dark .test-result.invalid {
+  background-color: #b71c1c;
+  border-color: #c62828;
+}
+
+.dark .test-result .match {
+  background-color: #ffd600;
+  color: #000;
+}
+
+.dark .match-content .highlight {
+  background-color: #ffd600;
+  color: #000;
+}

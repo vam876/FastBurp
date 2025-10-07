@@ -1,0 +1,40 @@
+{
+  "manifest_version": 3,
+  "name": "FastBurp - API调试工具",
+  "version": "1.1.6",
+  "description": "拦截、重放和分析网络请求，支持AI辅助分析",
+  "action": {
+    "default_popup": "entrypoints/popup/index.html",
+    "default_icon": {
+      "16": "icon/16.png",
+      "32": "icon/32.png",
+      "48": "icon/48.png",
+      "96": "icon/96.png",
+      "128": "icon/128.png"
+    }
+  },
+  "icons": {
+    "16": "icon/16.png",
+    "32": "icon/32.png",
+    "48": "icon/48.png",
+    "96": "icon/96.png",
+    "128": "icon/128.png"
+  },
+  "background": {
+    "service_worker": "entrypoints/background.ts"
+  },
+  "permissions": [
+    "storage",
+    "webRequest",
+    "webRequestBlocking",
+    "debugger",
+    "tabs",
+    "notifications",
+    "scripting",
+    "windows",
+    "proxy"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ]
+} 

@@ -1,0 +1,192 @@
+/* 匹配详情弹窗样式 */
+.match-details-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.match-details-modal {
+  background-color: #282c34;
+  color: #eee;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  border: 1px solid #3a3f47;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 25px 15px;
+  border-bottom: 1px solid #3a3f47;
+}
+
+.modal-header h3 {
+  margin: 0;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.close-button {
+  background: none;
+  border: none;
+  color: #aaa;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.close-button:hover {
+  background-color: #3a3f47;
+  color: #fff;
+}
+
+.modal-content {
+  padding: 20px 25px;
+}
+
+.detail-row {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  gap: 8px;
+}
+
+.detail-label {
+  font-weight: 600;
+  color: #2196F3;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.detail-content {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #1e2124;
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid #3a3f47;
+}
+
+.detail-text {
+  flex: 1;
+  font-family: monospace;
+  color: #eee;
+  word-break: break-all;
+  line-height: 1.4;
+  font-size: 13px;
+}
+
+.copy-button {
+  background-color: #2196F3;
+  border: 1px solid #1976D2;
+  border-radius: 4px;
+  cursor: pointer;
+  color: white;
+  padding: 6px 8px;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 32px;
+  height: 32px;
+}
+
+.copy-button:hover {
+  background-color: #1976D2;
+  transform: translateY(-1px);
+}
+
+.copy-button:active {
+  transform: translateY(0);
+}
+
+.copy-success {
+  color: #4CAF50;
+}
+
+.modal-footer {
+  padding: 15px 25px 20px;
+  border-top: 1px solid #3a3f47;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.close-modal-button {
+  background-color: #666;
+  border: 1px solid #555;
+  border-radius: 6px;
+  cursor: pointer;
+  color: white;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.close-modal-button:hover {
+  background-color: #555;
+  transform: translateY(-1px);
+}
+
+.close-modal-button:active {
+  transform: translateY(0);
+}
+
+/* 深色模式适配 */
+.dark .match-details-modal {
+  background-color: #1e2124;
+}
+
+.dark .detail-content {
+  background-color: #2a2e32;
+  border-color: #444;
+}
+
+.dark .modal-header,
+.dark .modal-footer {
+  border-color: #444;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .match-details-modal {
+    width: 95%;
+    margin: 10px;
+  }
+  
+  .modal-header,
+  .modal-content,
+  .modal-footer {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  
+  .detail-content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  
+  .copy-button {
+    align-self: flex-end;
+  }
+}
